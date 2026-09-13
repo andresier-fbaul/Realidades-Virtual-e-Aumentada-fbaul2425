@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://dfpt4rqs617x8"]
+
+[ext_resource type="Texture2D" uid="uid://dn8otd5gjvb88" path="res://equirectangular-pano.png" id="1_21a47"]
+[ext_resource type="Script" path="res://node_3d.gd" id="1_fflc2"]
+[ext_resource type="Texture2D" uid="uid://bja67puksaw3o" path="res://t_IMG20240814091545seampolarpolarrect.jpg" id="2_5xmem"]
+[ext_resource type="Script" path="res://camera.gd" id="2_fnl1i"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ioukx"]
+panorama = ExtResource("2_5xmem")
+
+[sub_resource type="Sky" id="Sky_xbpi1"]
+sky_material = SubResource("PanoramaSkyMaterial_ioukx")
+
+[sub_resource type="Environment" id="Environment_1aka2"]
+background_mode = 2
+sky = SubResource("Sky_xbpi1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wqejb"]
+transparency = 1
+blend_mode = 3
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_21a47")
+
+[sub_resource type="SphereMesh" id="SphereMesh_rn1wb"]
+material = SubResource("StandardMaterial3D_wqejb")
+radius = 5.0
+height = 10.0
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_fflc2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1aka2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+fov = 88.1
+script = ExtResource("2_fnl1i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_rn1wb")

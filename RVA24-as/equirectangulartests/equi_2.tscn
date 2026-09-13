@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c551giyx5kf1q"]
+
+[ext_resource type="Texture2D" uid="uid://babr80edwuvkt" path="res://t_IMG20221127220023_2a.jpg" id="1_gjr7l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckllo"]
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_gjr7l")
+uv1_scale = Vector3(5, 2, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4ypjp"]
+material = SubResource("StandardMaterial3D_ckllo")
+radius = 5.0
+height = 10.0
+
+[node name="equi2" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_4ypjp")

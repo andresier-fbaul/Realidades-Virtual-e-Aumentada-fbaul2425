@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjpgljn1fbkay"]
+
+[ext_resource type="Texture2D" uid="uid://do442km4sf82p" path="res://math_esferico_2a.jpg" id="1_8j8qn"]
+[ext_resource type="Texture2D" uid="uid://c8rkg46j3i8yw" path="res://44302761_1659841417450632_3587065731096772608_n.jpg" id="2_5gmbs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70jb8"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_8j8qn")
+
+[sub_resource type="SphereMesh" id="SphereMesh_q42va"]
+material = SubResource("StandardMaterial3D_70jb8")
+radius = 5.0
+height = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bg7em"]
+transparency = 1
+blend_mode = 3
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("2_5gmbs")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_14ujh"]
+material = SubResource("StandardMaterial3D_bg7em")
+size = Vector2(3, 1.6)
+
+[node name="MundoVRExerc1" type="Node3D"]
+
+[node name="EsferaExterior" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41009, -0.544248, 0.632328)
+mesh = SubResource("SphereMesh_q42va")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.109075, -0.994034, 0, 0.994034, -0.109075, 0, 0, 0)
+mesh = SubResource("PlaneMesh_14ujh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.109075, -0.994034, 0, 0.994034, -0.109075, -1.72477, 0, 0.887082)
+mesh = SubResource("PlaneMesh_14ujh")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.109075, -0.994034, 0, 0.994034, -0.109075, -1.72477, 0, -3.71916)
+mesh = SubResource("PlaneMesh_14ujh")

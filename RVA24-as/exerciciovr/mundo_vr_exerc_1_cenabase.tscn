@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://df3hqi33gt7xf"]
+
+[ext_resource type="Texture2D" uid="uid://b84dmcd8bt7ud" path="res://aurora_spherical.jpg" id="1_uy036"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70jb8"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_uy036")
+
+[sub_resource type="SphereMesh" id="SphereMesh_q42va"]
+material = SubResource("StandardMaterial3D_70jb8")
+radius = 5.0
+height = 10.0
+
+[node name="MundoVRExerc1" type="Node3D"]
+
+[node name="EsferaExterior" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41009, -0.544248, 0.632328)
+mesh = SubResource("SphereMesh_q42va")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://172f77jspdge"]
+
+[ext_resource type="Texture2D" uid="uid://b84dmcd8bt7ud" path="res://aurora_spherical.jpg" id="1_l4csj"]
+[ext_resource type="Texture2D" uid="uid://jaxdtjojwo2a" path="res://math_esferico.jpg" id="2_im5sk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70jb8"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_l4csj")
+
+[sub_resource type="SphereMesh" id="SphereMesh_q42va"]
+material = SubResource("StandardMaterial3D_70jb8")
+radius = 5.0
+height = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkue7"]
+albedo_texture = ExtResource("2_im5sk")
+
+[sub_resource type="BoxMesh" id="BoxMesh_mwcsl"]
+size = Vector3(1, 2, 1)
+
+[node name="MundoVRExerc1" type="Node3D"]
+
+[node name="EsferaExterior" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41009, -0.544248, 0.632328)
+mesh = SubResource("SphereMesh_q42va")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qkue7")
+mesh = SubResource("BoxMesh_mwcsl")
